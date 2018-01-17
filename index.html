@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- link to start with fresh style -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
+    <!-- link to bootstrap css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <!-- link to my style sheet -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+
+    <!-- link to jQuery JS -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <!-- link to moment.js -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+    <!-- link to firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+
+
+    <title>Pioneer Life</title>
+</head>
+
+<body>
+    <!-- header -->
+    <div class="jumbotron headerContainer text-center">
+        <h1 class="display-4">Pioneer Life</h1>
+        <p class="lead">you have not died of dysentery</p>
+    </div>
+
+    <!-- current schedule -->
+    <table class="table scheduleContainer">
+        <thead class="thead-dark">
+            <tr>
+                <th colspan="6">Current Wagon Schedule</th>
+            </tr>
+        </thead>
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Wagon Name</th>
+                <th scope="col">Destination</th>
+                <th scope="col">Frequency (min.)</th>
+                <th scope="col">Next Arrival</th>
+                <th scope="col">Minutes Away</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- content from database -->
+        </tbody>
+    </table>
+
+    <!-- add a train form -->
+    <form>
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="validationName">Wagon Name</label>
+                <input type="text" class="form-control" id="validationName" required>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="validationDestination">Destination</label>
+                <input type="text" class="form-control" id="validationDestination" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="validationFirstTime">First Train Time (military time)</label>
+                <input type="text" class="form-control" id="validationFirstTime" placeholder="24:00" required>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="validationFrequency">Frequency (min.)</label>
+                <input type="text" class="form-control" id="validationFrequency" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" id="submit">Submit form</button>
+    </form>
+
+<!-- link to jQuery cdn -->
+<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+<!-- link to my javascript file -->
+<script type="text/javascript" src="assets/javascript/scriptTrain.js"></script>
+<!-- link to bootstrap js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
