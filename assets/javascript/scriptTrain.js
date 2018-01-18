@@ -25,7 +25,7 @@ $('#submit').on('click', function(event) {
     var wagonName = $('#validationName').val().trim();
     var destination = $('#validationDestination').val().trim();
     // x is for unix timestamp, HH is for military time (24hrs)
-    var firstTime = moment($('#validationFirstTime').val().trim(), "hh:mm").format("X");
+    var firstTime = $('#validationFirstTime').val().trim();
     var frequency = $('#validationFrequency').val().trim();
 
     // get current time
@@ -53,6 +53,8 @@ $('#submit').on('click', function(event) {
     $('#validationDestination').val("");
     $('#validationFirstTime').val("");
     $('#validationFrequency').val("");
+
+    return false;
 });
 
 // firebase event to add new wagon to database and a row in the html
@@ -73,7 +75,7 @@ database.ref().on('child_added', function(childSnapshot, prevChildKey) {
     console.log(frequency);
 
     // make time easier to read
-    var wagonTime = moment.unix(firstTime).format("hh:mm");
+    var wagonTime = moment(firstTime, 'hh:mm').subtract(1, 'years');
 
     // difference between times
     var diff = moment().diff(moment(wagonTime), "minutes");
@@ -88,7 +90,7 @@ database.ref().on('child_added', function(childSnapshot, prevChildKey) {
     var nextArrive = moment().add(minAway, "minutes").format("hh:mm");
 
     // display info in current wagon schedule table
-    $('#wagonSchedule > tbody').append('<tr><td>' + wagonName + '</td><td>' + destination + '</td><td>' + frequency + '</td><td>' + nextArrive + '</td><td>' + nextArrive + '</td></tr>');
+    $("#wagonSchedule > tbody").append('<tr><td>' + wagonName + '</td><td>' + destination + '</td><td>' + frequency + '</td><td>' + nextArrive + '</td><td>' + minAway + '</td></tr>');
 
 });
 
